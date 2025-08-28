@@ -1,6 +1,9 @@
 const express = require("express");
 const aiRoutes  = require("./routes/ai.routes")
+const historyRoutes = require("./routes/history.routes");
 const cors = require("cors")
+
+const dbConnection = require("../config/db")
 
 
 const app = express()
@@ -14,6 +17,7 @@ app.get("/",(req,res)=>{
 })
 
 
-
 app.use("/ai",aiRoutes)
+app.use("/history", historyRoutes);
+
 module.exports =app;
